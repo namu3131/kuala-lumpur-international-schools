@@ -1,0 +1,2608 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>쿠알라룸푸르 국제학교 목록</title>
+  <meta name="description" content="쿠알라룸푸르 국제학교 79곳의 학교명, 지역, 학제, 설립연도, 학생수, 리뷰수, 평점, 학교코드, 등록주소를 모바일 친화적인 카드 UI로 정리한 페이지입니다." />
+  <meta name="keywords" content="쿠알라룸푸르 국제학교, Kuala Lumpur international school, 쿠알라룸푸르 학교, KL 국제학교, 몽키아라 국제학교, 암팡 국제학교, 쿠알라룸푸르 국제학교 목록" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#f4f7fb" />
+  <link rel="canonical" href="https://example.com/" />
+  <meta property="og:title" content="쿠알라룸푸르 국제학교 목록" />
+  <meta property="og:description" content="쿠알라룸푸르 국제학교 79곳의 학교명, 지역, 학제, 설립연도, 학생수, 리뷰수, 평점, 학교코드, 등록주소를 모바일 친화적인 카드 UI로 정리한 페이지입니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="https://example.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="쿠알라룸푸르 국제학교 목록" />
+  <meta name="twitter:description" content="쿠알라룸푸르 국제학교 79곳의 학교명, 지역, 학제, 설립연도, 학생수, 리뷰수, 평점, 학교코드, 등록주소를 모바일 친화적인 카드 UI로 정리한 페이지입니다." />
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --panel-2: #f8fbff;
+      --line: #dfe7f0;
+      --text: #1d2a3b;
+      --muted: #75869a;
+      --blue: #2f6df6;
+      --blue-soft: #edf3ff;
+      --yellow-text: #9d6a00;
+      --shadow: 0 10px 28px rgba(33,64,106,.08);
+      --radius-xl: 24px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f8fbff 0%, #f3f6fb 100%);
+      line-height: 1.45;
+    }
+    .page {
+      max-width: 430px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 14px 14px 32px;
+    }
+    .hero, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 16px; }
+    .hero-top { display:flex; align-items:flex-start; gap:12px; }
+    .hero-icon {
+      width: 38px; height: 38px; border-radius: 12px;
+      background: linear-gradient(135deg, #2f6df6, #5388ff); color: white;
+      display:flex; align-items:center; justify-content:center; flex:0 0 auto;
+      box-shadow: 0 10px 20px rgba(47,109,246,.22);
+    }
+    .hero h1 { margin:0; font-size:20px; line-height:1.2; letter-spacing:-.03em; }
+    .search-wrap { margin-top: 14px; position: relative; }
+    .search-wrap svg { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#9babbc; pointer-events:none; }
+    .search-input {
+      width:100%; height:46px; border:1px solid var(--line); border-radius:14px;
+      background:#fbfdff; padding:0 14px 0 42px; font-size:14px; color:var(--text); outline:none;
+    }
+    .search-input::placeholder { color:#96a5b7; }
+    .panel { margin-top: 14px; padding: 14px; }
+    .filters { display:grid; gap:14px; }
+    .filter-group-header {
+      display:flex; align-items:center; gap:8px; margin-bottom:10px;
+      font-size:14px; font-weight:700; color:#44576d;
+    }
+    .chip-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .chip {
+      border:1px solid var(--line); background:#fff; color:#54708c; border-radius:12px;
+      padding:8px 12px; font-size:13px; font-weight:600; cursor:pointer; transition:all .16s ease;
+    }
+    .chip:hover { transform:translateY(-1px); }
+    .chip.active { background: var(--blue-soft); color:var(--blue); border-color:#c8d8ff; }
+    .results-head { margin:16px 2px 10px; font-size:14px; color:#66798f; font-weight:600; }
+    .results-head strong { color:var(--blue); font-weight:800; }
+    .cards { display:grid; gap:12px; }
+    .school-card {
+      background: var(--panel); border:1px solid var(--line); border-radius:22px; overflow:hidden; box-shadow:var(--shadow);
+    }
+    .thumb { position:relative; height:52px; overflow:hidden; border-bottom:1px solid #e3ebf3; }
+    .thumb::after {
+      content:""; position:absolute; left:0; right:0; bottom:0; height:1px; background:rgba(47,109,246,.08);
+    }
+    .thumb.p1 { background: linear-gradient(135deg, #eaf4ff, #f6faff); }
+    .thumb.p2 { background: linear-gradient(135deg, #fdf1f4, #fff8fa); }
+    .thumb.p3 { background: linear-gradient(135deg, #eef8f1, #f8fcf9); }
+    .thumb.p4 { background: linear-gradient(135deg, #f8f1ff, #fcf9ff); }
+    .thumb.p5 { background: linear-gradient(135deg, #fff4e8, #fffaf5); }
+    .thumb.p6 { background: linear-gradient(135deg, #eef7f7, #f8fcfc); }
+    .badge-row {
+      position:absolute; top:10px; left:10px; right:10px; display:flex; justify-content:space-between; align-items:center; gap:8px;
+    }
+    .badge {
+      display:inline-flex; align-items:center; gap:4px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700;
+      backdrop-filter: blur(8px); background:rgba(255,255,255,.92); color:#30465c; box-shadow:0 4px 14px rgba(0,0,0,.08);
+    }
+    .badge.rating { background: rgba(255,250,233,.97); color: var(--yellow-text); }
+    .badge.region { background: rgba(255,255,255,.92); color:#5c6f84; }
+    .card-body { padding:14px 14px 10px; }
+    .title-row { display:flex; gap:10px; align-items:flex-start; justify-content:space-between; }
+    .name-block h2 { margin:0; font-size:17px; line-height:1.25; letter-spacing:-.02em; }
+    .official {
+      margin:6px 0 0; color:#7d8ea3; font-size:11px; font-weight:700; line-height:1.45; letter-spacing:.03em; text-transform:uppercase;
+    }
+    .name-ko {
+      flex:0 0 auto; font-size:12px; color:#6d8198; background:#f1f5fb; border-radius:999px; padding:5px 9px; font-weight:700; white-space:nowrap;
+    }
+    .meta-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px 14px; margin-top:14px; }
+    .meta-item { min-width:0; }
+    .meta-item .label { display:block; color:#8ea0b2; font-size:11px; line-height:1.2; margin-bottom:2px; }
+    .meta-item .value { display:block; color:#39506a; font-size:13px; font-weight:700; line-height:1.3; word-break:break-word; }
+    .address-box { margin-top:12px; padding-top:10px; border-top:1px solid #edf2f7; }
+    .address-box .label { display:block; font-size:11px; color:#8a9bae; margin-bottom:4px; }
+    .address-box .value { display:block; font-size:13px; color:#364f69; font-weight:700; line-height:1.45; word-break:break-word; }
+    .empty-note { padding:16px 4px 4px; color:#7c8ea3; font-size:13px; text-align:center; }
+    footer { padding:18px 4px 0; text-align:center; color:#8a9aad; font-size:12px; }
+    .sr-only {
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+    @media (min-width: 900px) {
+      .page { max-width: 1180px; padding: 22px; }
+      .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-top">
+        <div class="hero-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L3 8.5L12 13L21 8.5L12 4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M6 10.5V14.5C6 16.5 8.7 18 12 18C15.3 18 18 16.5 18 14.5V10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>쿠알라룸푸르 국제학교</h1>
+        </div>
+      </div>
+      <div class="search-wrap">
+        <label for="school-search" class="sr-only">학교 검색</label>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M16 16L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <input id="school-search" class="search-input" type="text" placeholder="학교명 (영문, 한글) 검색..." />
+      </div>
+    </header>
+
+    <section class="panel filters" aria-label="필터">
+      <div>
+        <div class="filter-group-header">지역 필터</div>
+        <div class="chip-row" id="region-filters">
+          <button class="chip active" type="button" data-filter="region" data-value="전체">전체</button>
+          <button class="chip" type="button" data-filter="region" data-value="Bukit Damansara">Bukit Damansara</button><button class="chip" type="button" data-filter="region" data-value="CC">CC</button><button class="chip" type="button" data-filter="region" data-value="Negeri Sembilan">Negeri Sembilan</button><button class="chip" type="button" data-filter="region" data-value="Tanjung Dua Belas">Tanjung Dua Belas</button><button class="chip" type="button" data-filter="region" data-value="데사팍 라인">데사팍 라인</button><button class="chip" type="button" data-filter="region" data-value="라왕">라왕</button><button class="chip" type="button" data-filter="region" data-value="몽키아라">몽키아라</button><button class="chip" type="button" data-filter="region" data-value="샤알람">샤알람</button><button class="chip" type="button" data-filter="region" data-value="수방자야">수방자야</button><button class="chip" type="button" data-filter="region" data-value="암팡">암팡</button><button class="chip" type="button" data-filter="region" data-value="왕사마주">왕사마주</button><button class="chip" type="button" data-filter="region" data-value="체라스">체라스</button><button class="chip" type="button" data-filter="region" data-value="카장">카장</button><button class="chip" type="button" data-filter="region" data-value="클랑">클랑</button><button class="chip" type="button" data-filter="region" data-value="푸총">푸총</button><button class="chip" type="button" data-filter="region" data-value="푸트라/사이버">푸트라/사이버</button><button class="chip" type="button" data-filter="region" data-value="프탈링자야">프탈링자야</button>
+        </div>
+      </div>
+      <div>
+        <div class="filter-group-header">학제</div>
+        <div class="chip-row" id="curriculum-filters">
+          <button class="chip active" type="button" data-filter="curriculum" data-value="전체">전체</button>
+          <button class="chip" type="button" data-filter="curriculum" data-value="IB">IB</button><button class="chip" type="button" data-filter="curriculum" data-value="미국">미국</button><button class="chip" type="button" data-filter="curriculum" data-value="캐나다">캐나다</button><button class="chip" type="button" data-filter="curriculum" data-value="호주">호주</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="results-head">검색 결과 <strong id="result-count">79</strong>개 학교</div>
+
+    <main class="cards" id="school-cards">
+      
+      <article class="school-card" data-region="암팡" data-curriculum="미국" data-search="iskl iskl the international school of kuala lumpur 암팡 미국 wub0022 no 2 lorong kelab polo di raja kuala lumpur 55000 wilayah persekutuan kuala lumpur">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">암팡</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>ISKL</h2>
+              <p class="official">THE INTERNATIONAL SCHOOL OF KUALA LUMPUR</p>
+            </div>
+            <span class="name-ko">ISKL</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,965</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">2,000</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미국</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0022</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">118</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO 2 LORONG KELAB POLO DI RAJA KUALA LUMPUR 55000 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="몽키아라" data-curriculum="미국" data-search="mont&#x27;kiara / mkis mkis mont&#x27; kiara international school 몽키아라 미국 wub0003 no. 22 jalan kiara, mont&#x27; kiara 50480 wilayah persekutuan kuala lumpur">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">몽키아라</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Mont&#x27;Kiara / MKIS</h2>
+              <p class="official">MONT&#x27; KIARA INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">MKIS</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,994</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">650</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미국</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0003</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">68</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 22 JALAN KIARA, MONT&#x27; KIARA 50480 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="몽키아라" data-curriculum="미상" data-search="garden / gis 가든 garden international school 몽키아라 미상 wub0002 no. 16, jalan kiara 3 off jalan bukit kiara 50480 wilayah persekutuan kuala lumpur">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">몽키아라</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Garden / GIS</h2>
+              <p class="official">GARDEN INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">가든</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,951</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">2,000</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0002</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">132</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 16, JALAN KIARA 3 OFF JALAN BUKIT KIARA 50480 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="CC" data-curriculum="미상" data-search="alice smith school 엘리스 스미스 the alice smith school cc 미상 bubh002 no. 3 jalan equine taman equine seri kembangan 43300 selangor">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.4">★ 4.4</span>
+            <span class="badge region">CC</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Alice Smith School</h2>
+              <p class="official">THE ALICE SMITH SCHOOL</p>
+            </div>
+            <span class="name-ko">엘리스 스미스</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,946</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,600</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH002</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">67</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.4</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 3 JALAN EQUINE TAMAN EQUINE SERI KEMBANGAN 43300 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="the british / bskl 브리티시 british international school 프탈링자야 미상 bubj004 no. 1, changkat bukit utama bandar utama petaling jaya 47800 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.9">★ 3.9</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>The British / BSKL</h2>
+              <p class="official">BRITISH INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">브리티시</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,009</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,400</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ004</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">91</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.9</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 1, CHANGKAT BUKIT UTAMA BANDAR UTAMA PETALING JAYA 47800 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Negeri Sembilan" data-curriculum="미상" data-search="epsom 엡솜 epsom college in malaysia negeri sembilan 미상 nub4005 persiaran kolej bandar enstek 71760 negeri sembilan">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.0">★ 4.0</span>
+            <span class="badge region">Negeri Sembilan</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Epsom</h2>
+              <p class="official">EPSOM COLLEGE IN MALAYSIA</p>
+            </div>
+            <span class="name-ko">엡솜</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,014</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">600</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">NUB4005</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">50</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.0</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PERSIARAN KOLEJ BANDAR ENSTEK 71760 NEGERI SEMBILAN</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="데사팍 라인" data-curriculum="IB" data-search="igb/igbis igb/igbis igb international school 데사팍 라인 ib bubg005 pt 32686 (lot 64466) jalan sierramas utama mukim batu, daerah gombak gombak 47000 selangor">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.7">★ 4.7</span>
+            <span class="badge region">데사팍 라인</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>IGB/IGBIS</h2>
+              <p class="official">IGB INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">IGB/IGBIS</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,014</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">500</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">IB</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBG005</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">175</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PT 32686 (LOT 64466) JALAN SIERRAMAS UTAMA MUKIM BATU, DAERAH GOMBAK GOMBAK 47000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="푸트라/사이버" data-curriculum="미상" data-search="nexus / nism 넥서스 nexus international school 푸트라/사이버 미상 u07a001 no 1, jalan diplomatik 3/6 presint 15 putrajaya 62050 wilayah persekutuan putrajaya">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">푸트라/사이버</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Nexus / NISM</h2>
+              <p class="official">NEXUS INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">넥서스</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,008</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">700</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">U07A001</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">41</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO 1, JALAN DIPLOMATIK 3/6 PRESINT 15 PUTRAJAYA 62050 WILAYAH PERSEKUTUAN PUTRAJAYA</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="st. joseph institution 세인트조셉 st. joseph&#x27;s institution international school pj 프탈링자야 미상 bubj008 no.1, jalan pju3/13 petaling jaya 47410 selangor">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.9">★ 3.9</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>St. Joseph Institution</h2>
+              <p class="official">ST. JOSEPH&#x27;S INSTITUTION INTERNATIONAL SCHOOL PJ</p>
+            </div>
+            <span class="name-ko">세인트조셉</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,016</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">760</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ008</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">63</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.9</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO.1, JALAN PJU3/13 PETALING JAYA 47410 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="체라스" data-curriculum="호주" data-search="australian / aism aism australian international school 체라스 호주 bubh003 no 22, jalan anggerik the mines resort city sri kembangan 43000 selangor">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.2">★ 4.2</span>
+            <span class="badge region">체라스</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Australian / AISM</h2>
+              <p class="official">AUSTRALIAN INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">AISM</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,000</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">400</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">호주</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH003</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">52</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.2</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO 22, JALAN ANGGERIK THE MINES RESORT CITY SRI KEMBANGAN 43000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="수방자야" data-curriculum="캐나다" data-search="sunway / sis 썬웨이 sunway city international school 수방자야 캐나다 bubh034 jalan anggerik the mines resort city sri kembangan 43000 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.7">★ 3.7</span>
+            <span class="badge region">수방자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sunway / SIS</h2>
+              <p class="official">SUNWAY CITY INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">썬웨이</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,008</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,000</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">캐나다</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH034</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">75</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">JALAN ANGGERIK THE MINES RESORT CITY SRI KEMBANGAN 43000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="푸트라/사이버" data-curriculum="미상" data-search="king henry viii college 킹헨리8 king henry viii college, cyberjaya 푸트라/사이버 미상 bubi005 hs(d) 28784, pt no.41466 dengkil cyberjaya 63000 selangor">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">푸트라/사이버</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>King Henry VIII College</h2>
+              <p class="official">KING HENRY VIII COLLEGE, CYBERJAYA</p>
+            </div>
+            <span class="name-ko">킹헨리8</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,018</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">550</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBI005</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">53</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">HS(D) 28784, PT NO.41466 DENGKIL CYBERJAYA 63000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="데사팍 라인" data-curriculum="미상" data-search="parkcity / isp isp the international school@parkcity 데사팍 라인 미상 wub0012 no. 1, jalan intisari desa parkcity, kuala lumpur 52200 wilayah persekutuan kuala lumpur">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.3">★ 3.3</span>
+            <span class="badge region">데사팍 라인</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Parkcity / ISP</h2>
+              <p class="official">THE INTERNATIONAL SCHOOL@PARKCITY</p>
+            </div>
+            <span class="name-ko">ISP</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,011</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,000</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0012</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">55</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 1, JALAN INTISARI DESA PARKCITY, KUALA LUMPUR 52200 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="sri kdu/skis(damansara) kdu(다만사라) sri kdu international school 프탈링자야 미상 bubj002 no. 3 &amp; 5 (aras 1), jalan teknologi 2/1 kota damansara 47810 selangor">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.6">★ 3.6</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sri KDU/SKIS(Damansara)</h2>
+              <p class="official">SRI KDU INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">KDU(다만사라)</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,011</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,000</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ002</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">111</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.6</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 3 &amp; 5 (ARAS 1), JALAN TEKNOLOGI 2/1 KOTA DAMANSARA 47810 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Tanjung Dua Belas" data-curriculum="미국" data-search="oasis / ois 오아시스 oasis international school, teluk panglima garang tanjung dua belas 미국 bubb003 jalan anggerik the mines resort city sri kembangan 43000 selangor">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.4">★ 4.4</span>
+            <span class="badge region">Tanjung Dua Belas</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Oasis / OIS</h2>
+              <p class="official">OASIS INTERNATIONAL SCHOOL, TELUK PANGLIMA GARANG</p>
+            </div>
+            <span class="name-ko">오아시스</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,018</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">350</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미국</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBB003</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">54</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.4</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">JALAN ANGGERIK THE MINES RESORT CITY SRI KEMBANGAN 43000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Negeri Sembilan" data-curriculum="미상" data-search="kolej tuanku ja’afar / ktj ktj kolej tuanku jaafar negeri sembilan 미상 nub4001 kolej tuanku ja&#x27;afar mantin 71700 negeri sembilan">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.3">★ 4.3</span>
+            <span class="badge region">Negeri Sembilan</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Kolej Tuanku Ja’afar / KTJ</h2>
+              <p class="official">KOLEJ TUANKU JAAFAR</p>
+            </div>
+            <span class="name-ko">KTJ</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,991</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">830</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">NUB4001</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">67</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">KOLEJ TUANKU JA&#x27;AFAR MANTIN 71700 NEGERI SEMBILAN</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="샤알람" data-curriculum="미상" data-search="help / his 헬프 help international school 샤알람 미상 bubh010 no. 2 persiaran cakerawala seksyen u4, subang bestari shah alam 40150 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">샤알람</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>HELP / HIS</h2>
+              <p class="official">HELP INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">헬프</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,013</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,300</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH010</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">79</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 2 PERSIARAN CAKERAWALA SEKSYEN U4, SUBANG BESTARI SHAH ALAM 40150 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="체라스" data-curriculum="미상" data-search="kingsgate 킹스게이트 kingsgate international school 체라스 미상 bubh020 a-gf-05, jalan pbs 14/2 taman bukit serdang seksyen 13, seri kembangan seri kembangan 43300 selangor">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.2">★ 3.2</span>
+            <span class="badge region">체라스</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Kingsgate</h2>
+              <p class="official">KINGSGATE INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">킹스게이트</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,017</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,600</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH020</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">34</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.2</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">A-GF-05, JALAN PBS 14/2 TAMAN BUKIT SERDANG SEKSYEN 13, SERI KEMBANGAN SERI KEMBANGAN 43300 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="수방자야" data-curriculum="미상" data-search="sri kdu/skis(subang) / gems  sri kdu international school (klang) 수방자야 미상 buba004 pt 4194, jalan tampin 1/ku 1 off jalan goh hock huat, sungai pinang klang 41050 selangor">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.7">★ 3.7</span>
+            <span class="badge region">수방자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sri KDU/SKIS(Subang) / GEMS</h2>
+              <p class="official">SRI KDU INTERNATIONAL SCHOOL (KLANG)</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,017</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">700</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBA004</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">87</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PT 4194, JALAN TAMPIN 1/KU 1 OFF JALAN GOH HOCK HUAT, SUNGAI PINANG KLANG 41050 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Negeri Sembilan" data-curriculum="미상" data-search="matrix / mis 매트릭스 matrix international school, seremban negeri sembilan 미상 nub4006 pt 12652 sendayan merchant square, persiaran 1 sendayan utama,pusat dagangan sendayan bandar sri sendayan 71950 negeri sembilan">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">Negeri Sembilan</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Matrix / MIS</h2>
+              <p class="official">MATRIX INTERNATIONAL SCHOOL, SEREMBAN</p>
+            </div>
+            <span class="name-ko">매트릭스</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,014</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">600</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">NUB4006</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">77</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PT 12652 SENDAYAN MERCHANT SQUARE, PERSIARAN 1 SENDAYAN UTAMA,PUSAT DAGANGAN SENDAYAN BANDAR SRI SENDAYAN 71950 NEGERI SEMBILAN</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="샤알람" data-curriculum="호주" data-search="peninsula / pisa 페닌슐라 peninsula international school australia 샤알람 호주 bubh017 no. 1 jalan setia murni u13/51 setia alam shah alam 40170 selangor">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.8">★ 3.8</span>
+            <span class="badge region">샤알람</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Peninsula / PISA</h2>
+              <p class="official">PENINSULA INTERNATIONAL SCHOOL AUSTRALIA</p>
+            </div>
+            <span class="name-ko">페닌슐라</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,018</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">250</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">호주</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH017</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">34</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.8</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 1 JALAN SETIA MURNI U13/51 SETIA ALAM SHAH ALAM 40170 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Bukit Damansara" data-curriculum="미상" data-search="cempaka 챔파카 cempaka international school, damansara heights bukit damansara 미상 wub0015 no. 19, jalan setiabakti 1 bukit damansara 50490 wilayah persekutuan kuala lumpur">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.4">★ 3.4</span>
+            <span class="badge region">Bukit Damansara</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Cempaka</h2>
+              <p class="official">CEMPAKA INTERNATIONAL SCHOOL, DAMANSARA HEIGHTS</p>
+            </div>
+            <span class="name-ko">챔파카</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,983</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">2,000</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0015</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">90</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.4</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 19, JALAN SETIABAKTI 1 BUKIT DAMANSARA 50490 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="클랑" data-curriculum="미상" data-search="sri kdu/skis(klang)  sri kdu international school (subang jaya) 클랑 미상 bubh014 jalan mp2 tropicana metropark subang jaya 47500 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">클랑</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sri KDU/SKIS(Klang)</h2>
+              <p class="official">SRI KDU INTERNATIONAL SCHOOL (SUBANG JAYA)</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,020</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">200</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH014</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">21</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">JALAN MP2 TROPICANA METROPARK SUBANG JAYA 47500 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="샤알람" data-curriculum="미상" data-search="tenby setia eco park 텐비 에코파크 tenby international school setia eco park shah ala 샤알람 미상 bubh001 no. 1, jalan setia tropika u13/18t, seksyen u13 setia eco park shah alam 40170 selangor">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.0">★ 4.0</span>
+            <span class="badge region">샤알람</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Tenby Setia Eco Park</h2>
+              <p class="official">TENBY INTERNATIONAL SCHOOL SETIA ECO PARK SHAH ALA</p>
+            </div>
+            <span class="name-ko">텐비 에코파크</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,008</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,300</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH001</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">85</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.0</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 1, JALAN SETIA TROPIKA U13/18T, SEKSYEN U13 SETIA ECO PARK SHAH ALAM 40170 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Tanjung Dua Belas" data-curriculum="미상" data-search="tenby tropicana aman 텐비 아만 sekolah antarabangsa tenby tropicana aman tanjung dua belas 미상 bubb004 no.1, jalan tropicana aman jalan utama 2, bandar tropicana aman telok panglima garang 42500 selangor">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.9">★ 3.9</span>
+            <span class="badge region">Tanjung Dua Belas</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Tenby Tropicana Aman</h2>
+              <p class="official">SEKOLAH ANTARABANGSA TENBY TROPICANA AMAN</p>
+            </div>
+            <span class="name-ko">텐비 아만</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,018</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">250</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBB004</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">19</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.9</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO.1, JALAN TROPICANA AMAN JALAN UTAMA 2, BANDAR TROPICANA AMAN TELOK PANGLIMA GARANG 42500 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="CC" data-curriculum="미국" data-search="rocklin / ris  rocklin international school cc 미국 wub0038 tingkat 5-9, kompleks permaisuri queensville no. 6 jalan sri permaisuri, bandar sri permaisuri cheras 56000 wilayah persekutuan kuala lumpur">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.7">★ 4.7</span>
+            <span class="badge region">CC</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Rocklin / RIS</h2>
+              <p class="official">ROCKLIN INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">80</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미국</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0038</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">28</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">TINGKAT 5-9, KOMPLEKS PERMAISURI QUEENSVILLE NO. 6 JALAN SRI PERMAISURI, BANDAR SRI PERMAISURI CHERAS 56000 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="asia pasifc/apis  asia pasific international school 프탈링자야 미상 bubh008 asia pacific international school subang subang 47200 selangor">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.8">★ 3.8</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Asia Pasifc/APIS</h2>
+              <p class="official">ASIA PASIFIC INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,013</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">500</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH008</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">97</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.8</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">ASIA PACIFIC INTERNATIONAL SCHOOL SUBANG SUBANG 47200 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="왕사마주" data-curriculum="IB" data-search="fairview(kl) 페어뷰(kl) fairview international school 왕사마주 ib wub0001 lot 4178, jalan 1/27d seksyen 6, wangsa maju 53300 wilayah persekutuan kuala lumpur">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.0">★ 4.0</span>
+            <span class="badge region">왕사마주</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Fairview(KL)</h2>
+              <p class="official">FAIRVIEW INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">페어뷰(KL)</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,978</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">2,000</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">IB</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0001</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">174</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.0</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 4178, JALAN 1/27D SEKSYEN 6, WANGSA MAJU 53300 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="수방자야" data-curriculum="IB" data-search="fairview(subang) 페어뷰(수방) fairview international school 수방자야 ib bubh006 no. 2a, jalan tp2 sime uep industrial park subang jaya 47600 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.5">★ 4.5</span>
+            <span class="badge region">수방자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Fairview(Subang)</h2>
+              <p class="official">FAIRVIEW INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">페어뷰(수방)</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,010</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">IB</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH006</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">70</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.5</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 2A, JALAN TP2 SIME UEP INDUSTRIAL PARK SUBANG JAYA 47600 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="체라스" data-curriculum="미상" data-search="ucsi (kl)  ucsi international school 체라스 미상 wub0035 lot 12734, jalan choo lip kung taman taynton view cheras 56000 wilayah persekutuan kuala lumpur">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.8">★ 4.8</span>
+            <span class="badge region">체라스</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>UCSI (KL)</h2>
+              <p class="official">UCSI INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,020</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">250</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0035</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">127</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.8</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 12734, JALAN CHOO LIP KUNG TAMAN TAYNTON VIEW CHERAS 56000 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Negeri Sembilan" data-curriculum="IB" data-search="ucsi (spring hill)  ucsi international school negeri sembilan ib nub2001 no. 1 persiaran ucsi bandar springhill 71010 negeri sembilan">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.9">★ 3.9</span>
+            <span class="badge region">Negeri Sembilan</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>UCSI (Spring Hill)</h2>
+              <p class="official">UCSI INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,013</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">440</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">IB</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">NUB2001</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">46</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.9</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 1 PERSIARAN UCSI BANDAR SPRINGHILL 71010 NEGERI SEMBILAN</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="푸총" data-curriculum="미상" data-search="rafflesia(puchong) 래플래시아(푸총) rafflesia international school puchong 푸총 미상 bubi002 persiaran sierra 2, bandar 16 sierra puchong 47100 selangor">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.8">★ 3.8</span>
+            <span class="badge region">푸총</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Rafflesia(Puchong)</h2>
+              <p class="official">RAFFLESIA INTERNATIONAL SCHOOL PUCHONG</p>
+            </div>
+            <span class="name-ko">래플래시아(푸총)</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,013</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">350</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBI002</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">117</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.8</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PERSIARAN SIERRA 2, BANDAR 16 SIERRA PUCHONG 47100 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="암팡" data-curriculum="미상" data-search="mutiara / migs  mutiara international grammar school 암팡 미상 bubd004 lot 707, jalan kerja ayer lama ampang jaya ampang 68000 selangor">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.5">★ 4.5</span>
+            <span class="badge region">암팡</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Mutiara / MIGS</h2>
+              <p class="official">MUTIARA INTERNATIONAL GRAMMAR SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,997</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">650</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBD004</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">70</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.5</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 707, JALAN KERJA AYER LAMA AMPANG JAYA AMPANG 68000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="카장" data-curriculum="미상" data-search="eaton(kajang) 이튼(카장) eaton international school 카장 미상 bubd008 persiaran puncak utama jade hills kajang 43000 selangor">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.9">★ 3.9</span>
+            <span class="badge region">카장</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Eaton(Kajang)</h2>
+              <p class="official">EATON INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">이튼(카장)</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,013</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">700</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBD008</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">50</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.9</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PERSIARAN PUNCAK UTAMA JADE HILLS KAJANG 43000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="데사팍 라인" data-curriculum="미상" data-search="hibiscus  hibiscus international school 데사팍 라인 미상 wub0016 unit 26, 27, 28 dan 29, jalan udang harimau 3, kepong business park, taman sri segambut kuala lumpur 52000 wilayah persekutuan kuala lumpur">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.5">★ 4.5</span>
+            <span class="badge region">데사팍 라인</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>HIBISCUS</h2>
+              <p class="official">HIBISCUS INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,013</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">500</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0016</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">73</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.5</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">UNIT 26, 27, 28 DAN 29, JALAN UDANG HARIMAU 3, KEPONG BUSINESS PARK, TAMAN SRI SEGAMBUT KUALA LUMPUR 52000 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="샤알람" data-curriculum="미상" data-search="real (shah alam)  real international school shah alam 샤알람 미상 bubh009 no 5, jalan merah saga u9/5 shah alam 40150 selangor">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.7">★ 3.7</span>
+            <span class="badge region">샤알람</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>REAL (Shah Alam)</h2>
+              <p class="official">REAL INTERNATIONAL SCHOOL SHAH ALAM</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,008</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">350</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH009</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">194</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO 5, JALAN MERAH SAGA U9/5 SHAH ALAM 40150 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="샤알람" data-curriculum="미상" data-search="dwi emas  dwi emas international school 샤알람 미상 bubh011 no.5, jalan ikhtisas 14/1, seksyen 14 shah alam 40000 selangor">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.3">★ 4.3</span>
+            <span class="badge region">샤알람</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Dwi Emas</h2>
+              <p class="official">DWI EMAS INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,015</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">400</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH011</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">68</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO.5, JALAN IKHTISAS 14/1, SEKSYEN 14 SHAH ALAM 40000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="푸총" data-curriculum="미상" data-search="taylor&#x27;s (puchong) 테일러스(푸총) taylor&#x27;s international school, puchong 푸총 미상 bubh004 no.1 jalan bp 14/7 bandar bukit puchong 2 puchong 47120 selangor">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">푸총</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Taylor&#x27;s (Puchong)</h2>
+              <p class="official">TAYLOR&#x27;S INTERNATIONAL SCHOOL, PUCHONG</p>
+            </div>
+            <span class="name-ko">테일러스(푸총)</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,015</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,300</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH004</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">92</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO.1 JALAN BP 14/7 BANDAR BUKIT PUCHONG 2 PUCHONG 47120 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="암팡" data-curriculum="미상" data-search="taylor&#x27;s (kl) 테일러스(kl) taylor&#x27;s international school kuala lumpur 암팡 미상 wub0010 no. 9, jalan 1/75c off jalan pria, taman maluri kuala lumpur 55100 wilayah persekutuan kuala lumpur">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.0">★ 4.0</span>
+            <span class="badge region">암팡</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Taylor&#x27;s (KL)</h2>
+              <p class="official">TAYLOR&#x27;S INTERNATIONAL SCHOOL KUALA LUMPUR</p>
+            </div>
+            <span class="name-ko">테일러스(KL)</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,991</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,220</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0010</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">228</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.0</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 9, JALAN 1/75C OFF JALAN PRIA, TAMAN MALURI KUALA LUMPUR 55100 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Negeri Sembilan" data-curriculum="미상" data-search="nilai 닐라이 nilai international school negeri sembilan 미상 nub4002 no. 3, persiaran kolej bbn, putra nilai, nilai 71800 negeri sembilan">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.2">★ 4.2</span>
+            <span class="badge region">Negeri Sembilan</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Nilai</h2>
+              <p class="official">NILAI INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">닐라이</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,010</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">550</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">NUB4002</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">36</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.2</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 3, PERSIARAN KOLEJ BBN, PUTRA NILAI, NILAI 71800 NEGERI SEMBILAN</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="카장" data-curriculum="미상" data-search="tenby setia ecohill 텐비 에코힐 tenby international school, setia ecohill,semenyih 카장 미상 bubd010 no. 6, jalan ecohill 1, setia ecohill semenyih 43500 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.2">★ 4.2</span>
+            <span class="badge region">카장</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Tenby Setia EcoHill</h2>
+              <p class="official">TENBY INTERNATIONAL SCHOOL, SETIA ECOHILL,SEMENYIH</p>
+            </div>
+            <span class="name-ko">텐비 에코힐</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,016</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">540</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBD010</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">40</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.2</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 6, JALAN ECOHILL 1, SETIA ECOHILL SEMENYIH 43500 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="데사팍 라인" data-curriculum="미상" data-search="elc(sungai buloh)  elc international school 데사팍 라인 미상 bubg002 lot 3664, sierramas barat, sierramas sungai buloh 47000 selangor">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.7">★ 3.7</span>
+            <span class="badge region">데사팍 라인</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>elc(Sungai Buloh)</h2>
+              <p class="official">ELC INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,987</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">650</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBG002</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">62</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 3664, SIERRAMAS BARAT, SIERRAMAS SUNGAI BULOH 47000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="푸트라/사이버" data-curriculum="미상" data-search="elc(cyberjaya)  sekolah antarabangsa elc cyberjaya 푸트라/사이버 미상 bubi001 lot 23539 lingkaran cyber point barat cyberjaya 63000 selangor">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.3">★ 4.3</span>
+            <span class="badge region">푸트라/사이버</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>elc(Cyberjaya)</h2>
+              <p class="official">SEKOLAH ANTARABANGSA ELC CYBERJAYA</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,987</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">300</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBI001</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">23</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 23539 LINGKARAN CYBER POINT BARAT CYBERJAYA 63000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="라왕" data-curriculum="미상" data-search="straits  straits international school, rawang, selangor 라왕 미상 bubg007 persiaran taman sari taman sari rawang rawang 48000 selangor">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.6">★ 3.6</span>
+            <span class="badge region">라왕</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Straits</h2>
+              <p class="official">STRAITS INTERNATIONAL SCHOOL, RAWANG, SELANGOR</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,018</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">430</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBG007</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">44</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.6</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PERSIARAN TAMAN SARI TAMAN SARI RAWANG RAWANG 48000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="beaconhouse sri inai 비콘하우스 beaconhouse sri inai international school 프탈링자야 미상 bubj006 lot 1098, jalan jenjarom,off jalan ss 23/6 taman sea petaling jaya 47400 selangor">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.4">★ 3.4</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Beaconhouse Sri Inai</h2>
+              <p class="official">BEACONHOUSE SRI INAI INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">비콘하우스</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,005</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">600</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ006</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">98</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.4</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 1098, JALAN JENJAROM,OFF JALAN SS 23/6 TAMAN SEA PETALING JAYA 47400 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Tanjung Dua Belas" data-curriculum="미상" data-search="mahsa 마사 mahsa international school tanjung dua belas 미상 bubb002 jalan sp 2, bandar saujana putra, jenjarom, jenjarom 41200 selangor">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.5">★ 3.5</span>
+            <span class="badge region">Tanjung Dua Belas</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>MAHSA</h2>
+              <p class="official">MAHSA INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">마사</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,017</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">300</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBB002</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">98</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.5</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">JALAN SP 2, BANDAR SAUJANA PUTRA, JENJAROM, JENJAROM 41200 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="카장" data-curriculum="미상" data-search="tanarata 타나라타 tanarata international school 카장 미상 bubd001 tis @ planters grounds, 3.5 mls kajang-serdang road, kajang 43000 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.4">★ 4.4</span>
+            <span class="badge region">카장</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Tanarata</h2>
+              <p class="official">TANARATA INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">타나라타</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,007</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">440</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBD001</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">42</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.4</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">TIS @ PLANTERS GROUNDS, 3.5 MLS KAJANG-SERDANG ROAD, KAJANG 43000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="qosmo  qosmo international school 프탈링자야 미상 bubj011 wisma mcis annexe no. 2 (ploy a), jalan barat, seksyen 52 petaling jaya 46200 selangor">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.3">★ 4.3</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Qosmo</h2>
+              <p class="official">QOSMO INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,018</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">100</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ011</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">50</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">WISMA MCIS ANNEXE NO. 2 (PLOY A), JALAN BARAT, SEKSYEN 52 PETALING JAYA 46200 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="라왕" data-curriculum="미상" data-search="sasana  sasana international school 라왕 미상 bubg008 no.22, 24, 26, 28, 30, 32, 34, 36, 38, 40 jalan hijau 5/4, bandar tasik puteri rawang 48020 selangor">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.7">★ 4.7</span>
+            <span class="badge region">라왕</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sasana</h2>
+              <p class="official">SASANA INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBG008</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">16</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO.22, 24, 26, 28, 30, 32, 34, 36, 38, 40 JALAN HIJAU 5/4, BANDAR TASIK PUTERI RAWANG 48020 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="체라스" data-curriculum="미상" data-search="beaconhouse newlands 비콘하우스 beaconhouse newlands international school 체라스 미상 bubd006 lot no. 2855, batu 9, jalan cheras cheras 43200 selangor">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.9">★ 3.9</span>
+            <span class="badge region">체라스</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Beaconhouse Newlands</h2>
+              <p class="official">BEACONHOUSE NEWLANDS INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">비콘하우스</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,012</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">200</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBD006</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">70</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.9</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT NO. 2855, BATU 9, JALAN CHERAS CHERAS 43200 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="nobel 노벨 nobel international school 프탈링자야 미상 bubj005 no 43, jalan ss 22/41, damansara jaya petalong jaya petaling jaya 47400 selangor">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.9">★ 3.9</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Nobel</h2>
+              <p class="official">NOBEL INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">노벨</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ005</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">306</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.9</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO 43, JALAN SS 22/41, DAMANSARA JAYA PETALONG JAYA PETALING JAYA 47400 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="라왕" data-curriculum="미국" data-search="templer park / tpis  templer park international school 라왕 미국 bubg006 taman rimba templer, templer park rawang 48200 selangor">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.3">★ 4.3</span>
+            <span class="badge region">라왕</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Templer Park / TPIS</h2>
+              <p class="official">TEMPLER PARK INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">180</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미국</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBG006</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">31</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">TAMAN RIMBA TEMPLER, TEMPLER PARK RAWANG 48200 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="sri emas 스리에마스 sekolah antarabangsa sri emas 프탈링자야 미상 bubj080 lot 1214, seksyen 40, batu 10, lebuhraya persekutuan, off jalan ss7/2 petaling jaya 47300 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sri Emas</h2>
+              <p class="official">SEKOLAH ANTARABANGSA SRI EMAS</p>
+            </div>
+            <span class="name-ko">스리에마스</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,012</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">350</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ080</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">66</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 1214, SEKSYEN 40, BATU 10, LEBUHRAYA PERSEKUTUAN, OFF JALAN SS7/2 PETALING JAYA 47300 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="수방자야" data-curriculum="미상" data-search="ucsi (subang)  ucsi international school 수방자야 미상 bubh007 lot 4891, jalan ss 13/4 subang jaya 47500 selangor">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.7">★ 3.7</span>
+            <span class="badge region">수방자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>UCSI (Subang)</h2>
+              <p class="official">UCSI INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,013</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">550</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH007</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">234</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 4891, JALAN SS 13/4 SUBANG JAYA 47500 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="aspiration  aspiration international primary school 프탈링자야 미상 bubj017 tingkat 2,3 dan 4, plaza damansara utama 2 jalan ss 21/60, damansara utama petaling jaya 47400 selangor">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.7">★ 3.7</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Aspiration</h2>
+              <p class="official">ASPIRATION INTERNATIONAL PRIMARY SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ017</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">3</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">TINGKAT 2,3 DAN 4, PLAZA DAMANSARA UTAMA 2 JALAN SS 21/60, DAMANSARA UTAMA PETALING JAYA 47400 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="데사팍 라인" data-curriculum="미상" data-search="sri bestari  sri bestari international school 데사팍 라인 미상 bubj009 persiaran margosa bandar sri damansara kuala lumpur 52200 selangor">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.3">★ 4.3</span>
+            <span class="badge region">데사팍 라인</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sri Bestari</h2>
+              <p class="official">SRI BESTARI INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ009</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">46</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PERSIARAN MARGOSA BANDAR SRI DAMANSARA KUALA LUMPUR 52200 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="수방자야" data-curriculum="미상" data-search="maple leaf kingsley/kingsley 킹슬리 maple leaf kingsley international school 수방자야 미상 bubh075 persiaran kingsley, kingsley hills putra heights subang jaya 47650 selangor">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.9">★ 3.9</span>
+            <span class="badge region">수방자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Maple Leaf Kingsley/Kingsley</h2>
+              <p class="official">MAPLE LEAF KINGSLEY INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">킹슬리</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,011</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">2,500</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH075</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">169</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.9</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PERSIARAN KINGSLEY, KINGSLEY HILLS PUTRA HEIGHTS SUBANG JAYA 47650 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="수방자야" data-curriculum="미상" data-search="sri kuala lumpur school  sri kuala lumpur international school 수방자야 미상 bubh005 no. 1 jalan ss 15/7a subang jaya 47500 selangor">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.5">★ 3.5</span>
+            <span class="badge region">수방자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sri Kuala Lumpur School</h2>
+              <p class="official">SRI KUALA LUMPUR INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH005</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">101</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.5</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 1 JALAN SS 15/7A SUBANG JAYA 47500 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="클랑" data-curriculum="미상" data-search="acmar  acmar international school, klang 클랑 미상 buba002 pt 21156 persiaran rajawali bandar baru klang klang 41150 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.7">★ 3.7</span>
+            <span class="badge region">클랑</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Acmar</h2>
+              <p class="official">ACMAR INTERNATIONAL SCHOOL, KLANG</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,018</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">150</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBA002</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">67</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.7</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">PT 21156 PERSIARAN RAJAWALI BANDAR BARU KLANG KLANG 41150 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="암팡" data-curriculum="미상" data-search="sayfol 세이폴 sayfol international school 암팡 미상 wub0004 no. 261 jalan ampang kuala lumpur 50450 wilayah persekutuan kuala lumpur">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.6">★ 3.6</span>
+            <span class="badge region">암팡</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sayfol</h2>
+              <p class="official">SAYFOL INTERNATIONAL SCHOOL</p>
+            </div>
+            <span class="name-ko">세이폴</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,985</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,300</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0004</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">163</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.6</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 261 JALAN AMPANG KUALA LUMPUR 50450 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="데사팍 라인" data-curriculum="미상" data-search="tree top  tree top international school 데사팍 라인 미상 wub0024 2-28, jalan udang siar 1, taman sri segambut kuala lumpur 52000 wilayah persekutuan kuala lumpur">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.1">★ 4.1</span>
+            <span class="badge region">데사팍 라인</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Tree Top</h2>
+              <p class="official">TREE TOP INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0024</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">23</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.1</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">2-28, JALAN UDANG SIAR 1, TAMAN SRI SEGAMBUT KUALA LUMPUR 52000 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="CC" data-curriculum="미상" data-search="cranbridge  cranbridge international school cc 미상 wub0034 lot 48, jalan tiga off jalan chan sow lin kuala lumpur 55200 wilayah persekutuan kuala lumpur">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.5">★ 4.5</span>
+            <span class="badge region">CC</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Cranbridge</h2>
+              <p class="official">CRANBRIDGE INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0034</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">30</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.5</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 48, JALAN TIGA OFF JALAN CHAN SOW LIN KUALA LUMPUR 55200 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Bukit Damansara" data-curriculum="미상" data-search="stella maris/smis  stella maris international school kuala lumpur bukit damansara 미상 wub0025 no 7, lorong setiabestari 2 medan damansara 50490 wilayah persekutuan kuala lumpur">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.0">★ 3.0</span>
+            <span class="badge region">Bukit Damansara</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Stella Maris/SMIS</h2>
+              <p class="official">STELLA MARIS INTERNATIONAL SCHOOL KUALA LUMPUR</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0025</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">89</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.0</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO 7, LORONG SETIABESTARI 2 MEDAN DAMANSARA 50490 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="샤알람" data-curriculum="미상" data-search="maz(shah alam) 마쯔 maz international school shah alam 샤알람 미상 bubh081 lot 2, jalan kristal 7/64, seksyen 7, shah alam 40000 selangor">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.0">★ 4.0</span>
+            <span class="badge region">샤알람</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>MAZ(SHAH ALAM)</h2>
+              <p class="official">MAZ INTERNATIONAL SCHOOL SHAH ALAM</p>
+            </div>
+            <span class="name-ko">마쯔</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH081</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">58</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.0</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 2, JALAN KRISTAL 7/64, SEKSYEN 7, SHAH ALAM 40000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="CC" data-curriculum="미상" data-search="havil  havil international school cc 미상 wub0019 no. 21, jalan sultan abdul samad brickfields kuala lumpur 50470 wilayah persekutuan kuala lumpur">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.3">★ 4.3</span>
+            <span class="badge region">CC</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Havil</h2>
+              <p class="official">HAVIL INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,012</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">145</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0019</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">18</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 21, JALAN SULTAN ABDUL SAMAD BRICKFIELDS KUALA LUMPUR 50470 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="CC" data-curriculum="미상" data-search="valley  valley international school kuala lumpur cc 미상 wub0037 lot19, 219, 220, 221, 222, 223, 224, 225, 226&amp;227 55, jalan thamby abdullah brickfields 50470 wilayah persekutuan kuala lumpur">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.2">★ 4.2</span>
+            <span class="badge region">CC</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Valley</h2>
+              <p class="official">VALLEY INTERNATIONAL SCHOOL KUALA LUMPUR</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0037</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">46</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.2</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT19, 219, 220, 221, 222, 223, 224, 225, 226&amp;227 55, JALAN THAMBY ABDULLAH BRICKFIELDS 50470 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="왕사마주" data-curriculum="미상" data-search="sri utama / suis  utama international school kuala lumpur 왕사마주 미상 wub0005 no 1, jalan seri rejang rampai park south setapak 53300 wilayah persekutuan kuala lumpur">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 2.8">★ 2.8</span>
+            <span class="badge region">왕사마주</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sri Utama / SUIS</h2>
+              <p class="official">UTAMA INTERNATIONAL SCHOOL KUALA LUMPUR</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">1,994</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">700</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0005</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">73</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">2.8</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO 1, JALAN SERI REJANG RAMPAI PARK SOUTH SETAPAK 53300 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="CC" data-curriculum="미상" data-search="st. john&#x27;s  st. john’s international primary school, kuala lumpur cc 미상 wub0030 145, jalan bukit nanas kuala lumpur 50250 wilayah persekutuan kuala lumpur">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.5">★ 4.5</span>
+            <span class="badge region">CC</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>St. John&#x27;s</h2>
+              <p class="official">ST. JOHN’S INTERNATIONAL PRIMARY SCHOOL, KUALA LUMPUR</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0030</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">130</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.5</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">145, JALAN BUKIT NANAS KUALA LUMPUR 50250 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="왕사마주" data-curriculum="미상" data-search="brighton  brighton international school, setiawangsa kuala lumpur 왕사마주 미상 wub0023 bangunan sri impian,no 24,31,jalan setiawangsa 8 taman setiawangsa kuala lumpur 54200 wilayah persekutuan kuala lumpur">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.6">★ 4.6</span>
+            <span class="badge region">왕사마주</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Brighton</h2>
+              <p class="official">BRIGHTON INTERNATIONAL SCHOOL, SETIAWANGSA KUALA LUMPUR</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0023</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">106</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.6</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">BANGUNAN SRI IMPIAN,NO 24,31,JALAN SETIAWANGSA 8 TAMAN SETIAWANGSA KUALA LUMPUR 54200 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="maz(petaling jaya) 마쯔 maz international school petaling jaya 프탈링자야 미상 bubj003 no. 1 jalan 20/19 paramount garden petaling jaya 46300 selangor">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.3">★ 3.3</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>MAZ(PETALING JAYA)</h2>
+              <p class="official">MAZ INTERNATIONAL SCHOOL PETALING JAYA</p>
+            </div>
+            <span class="name-ko">마쯔</span>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ003</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">51</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 1 JALAN 20/19 PARAMOUNT GARDEN PETALING JAYA 46300 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="푸총" data-curriculum="미상" data-search="inspiros  inspiros internatonal school 푸총 미상 bubh012 b-1-1, blok b, setia walk, persiaran wawasan, pusat bandar puchong puchong 47100 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.4">★ 4.4</span>
+            <span class="badge region">푸총</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Inspiros</h2>
+              <p class="official">INSPIROS INTERNATONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH012</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">198</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.4</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">B-1-1, BLOK B, SETIA WALK, PERSIARAN WAWASAN, PUSAT BANDAR PUCHONG PUCHONG 47100 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="클랑" data-curriculum="미상" data-search="regent  regent international school 클랑 미상 buba001 lot 4337, jalan kopi, off persiaran raja muda musa klang 41200 selangor">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.8">★ 3.8</span>
+            <span class="badge region">클랑</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Regent</h2>
+              <p class="official">REGENT INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,011</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">1,500</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBA001</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">59</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.8</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 4337, JALAN KOPI, OFF PERSIARAN RAJA MUDA MUSA KLANG 41200 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="Negeri Sembilan" data-curriculum="미상" data-search="zenith  zenith international school negeri sembilan 미상 nub4004 126, jalan s2 b4, uptown avenue, seremban 70300 negeri sembilan">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 3.9">★ 3.9</span>
+            <span class="badge region">Negeri Sembilan</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Zenith</h2>
+              <p class="official">ZENITH INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">NUB4004</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">30</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">3.9</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">126, JALAN S2 B4, UPTOWN AVENUE, SEREMBAN 70300 NEGERI SEMBILAN</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="프탈링자야" data-curriculum="미상" data-search="heritage  heritage international school 프탈링자야 미상 bubj013 tingkat bawah, 1 dan 2, blok a heritage centre no.3, jalan 13/6 petaling jaya 46200 selangor">
+        <div class="thumb p2">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.2">★ 4.2</span>
+            <span class="badge region">프탈링자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Heritage</h2>
+              <p class="official">HERITAGE INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBJ013</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">31</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.2</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">TINGKAT BAWAH, 1 DAN 2, BLOK A HERITAGE CENTRE NO.3, JALAN 13/6 PETALING JAYA 46200 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="CC" data-curriculum="미상" data-search="alnoor / ais  sekolah antarabangsa alnoor cc 미상 wub0013 no. 6, lengkok bellamy bukit petaling kuala lumpur 50460 wilayah persekutuan kuala lumpur">
+        <div class="thumb p3">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.3">★ 4.3</span>
+            <span class="badge region">CC</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Alnoor / AIS</h2>
+              <p class="official">SEKOLAH ANTARABANGSA ALNOOR</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,007</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0013</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">143</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 6, LENGKOK BELLAMY BUKIT PETALING KUALA LUMPUR 50460 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="카장" data-curriculum="미상" data-search="global modern / gmis  global modern international school 카장 미상 bubd009 no 1, jalan sinar pagi country heights kajang 43000 selangor">
+        <div class="thumb p4">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.0">★ 4.0</span>
+            <span class="badge region">카장</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Global Modern / GMIS</h2>
+              <p class="official">GLOBAL MODERN INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBD009</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">70</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.0</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO 1, JALAN SINAR PAGI COUNTRY HEIGHTS KAJANG 43000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="수방자야" data-curriculum="미상" data-search="oakbridge  oakbridge international school 수방자야 미상 bubh016 lot 556 jalan subang 3 taman perindustrian subang subang jaya 47610 selangor">
+        <div class="thumb p5">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 2.8">★ 2.8</span>
+            <span class="badge region">수방자야</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Oakbridge</h2>
+              <p class="official">OAKBRIDGE INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,019</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBH016</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">34</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">2.8</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">LOT 556 JALAN SUBANG 3 TAMAN PERINDUSTRIAN SUBANG SUBANG JAYA 47610 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="체라스" data-curriculum="미상" data-search="columbia  columbia international school, cheras selangor 체라스 미상 bubd016 no 1, jalan cheras batu 11, bukit dukung business park kajang 43000 selangor">
+        <div class="thumb p6">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.4">★ 4.4</span>
+            <span class="badge region">체라스</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Columbia</h2>
+              <p class="official">COLUMBIA INTERNATIONAL SCHOOL, CHERAS SELANGOR</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">정보 없음</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">BUBD016</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">64</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.4</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO 1, JALAN CHERAS BATU 11, BUKIT DUKUNG BUSINESS PARK KAJANG 43000 SELANGOR</span>
+          </div>
+        </div>
+      </article>
+    
+      <article class="school-card" data-region="CC" data-curriculum="미상" data-search="sri dasmesh  sri dasmesh international school cc 미상 wub0018 no. 12 jalan pantai baru kuala lumpur 59200 wilayah persekutuan kuala lumpur">
+        <div class="thumb p1">
+          <div class="badge-row">
+            <span class="badge rating" aria-label="평점 4.3">★ 4.3</span>
+            <span class="badge region">CC</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="title-row">
+            <div class="name-block">
+              <h2>Sri Dasmesh</h2>
+              <p class="official">SRI DASMESH INTERNATIONAL SCHOOL</p>
+            </div>
+            
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="label">설립연도</span><span class="value">2,001</span></div>
+            <div class="meta-item"><span class="label">학생수</span><span class="value">500</span></div>
+            <div class="meta-item"><span class="label">학제</span><span class="value">미상</span></div>
+            <div class="meta-item"><span class="label">학교코드</span><span class="value">WUB0018</span></div>
+            <div class="meta-item"><span class="label">리뷰</span><span class="value">68</span></div>
+            <div class="meta-item"><span class="label">평점</span><span class="value">4.3</span></div>
+          </div>
+          <div class="address-box">
+            <span class="label">등록주소</span>
+            <span class="value">NO. 12 JALAN PANTAI BARU KUALA LUMPUR 59200 WILAYAH PERSEKUTUAN KUALA LUMPUR</span>
+          </div>
+        </div>
+      </article>
+    
+    </main>
+
+    <footer>모바일 우선 카드 UI · 검색/필터 · 등록주소 직접 표시 · 기본 SEO 메타 적용</footer>
+  </div>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"쿠알라룸푸르 국제학교 목록","description":"쿠알라룸푸르 국제학교 79곳의 학교명, 지역, 학제, 설립연도, 학생수, 리뷰수, 평점, 학교코드, 등록주소를 모바일 친화적인 카드 UI로 정리한 페이지입니다.","inLanguage":"ko-KR","url":"https://example.com/","mainEntity":{"@type":"ItemList","numberOfItems":79,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"School","name":"THE INTERNATIONAL SCHOOL OF KUALA LUMPUR","address":"NO 2 LORONG KELAB POLO DI RAJA KUALA LUMPUR 55000 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":2,"item":{"@type":"School","name":"MONT' KIARA INTERNATIONAL SCHOOL","address":"NO. 22 JALAN KIARA, MONT' KIARA 50480 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":3,"item":{"@type":"School","name":"GARDEN INTERNATIONAL SCHOOL","address":"NO. 16, JALAN KIARA 3 OFF JALAN BUKIT KIARA 50480 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":4,"item":{"@type":"School","name":"THE ALICE SMITH SCHOOL","address":"NO. 3 JALAN EQUINE TAMAN EQUINE SERI KEMBANGAN 43300 SELANGOR"}},{"@type":"ListItem","position":5,"item":{"@type":"School","name":"BRITISH INTERNATIONAL SCHOOL","address":"NO. 1, CHANGKAT BUKIT UTAMA BANDAR UTAMA PETALING JAYA 47800 SELANGOR"}},{"@type":"ListItem","position":6,"item":{"@type":"School","name":"EPSOM COLLEGE IN MALAYSIA","address":"PERSIARAN KOLEJ BANDAR ENSTEK 71760 NEGERI SEMBILAN"}},{"@type":"ListItem","position":7,"item":{"@type":"School","name":"IGB INTERNATIONAL SCHOOL","address":"PT 32686 (LOT 64466) JALAN SIERRAMAS UTAMA MUKIM BATU, DAERAH GOMBAK GOMBAK 47000 SELANGOR"}},{"@type":"ListItem","position":8,"item":{"@type":"School","name":"NEXUS INTERNATIONAL SCHOOL","address":"NO 1, JALAN DIPLOMATIK 3/6 PRESINT 15 PUTRAJAYA 62050 WILAYAH PERSEKUTUAN PUTRAJAYA"}},{"@type":"ListItem","position":9,"item":{"@type":"School","name":"ST. JOSEPH'S INSTITUTION INTERNATIONAL SCHOOL PJ","address":"NO.1, JALAN PJU3/13 PETALING JAYA 47410 SELANGOR"}},{"@type":"ListItem","position":10,"item":{"@type":"School","name":"AUSTRALIAN INTERNATIONAL SCHOOL","address":"NO 22, JALAN ANGGERIK THE MINES RESORT CITY SRI KEMBANGAN 43000 SELANGOR"}},{"@type":"ListItem","position":11,"item":{"@type":"School","name":"SUNWAY CITY INTERNATIONAL SCHOOL","address":"JALAN ANGGERIK THE MINES RESORT CITY SRI KEMBANGAN 43000 SELANGOR"}},{"@type":"ListItem","position":12,"item":{"@type":"School","name":"KING HENRY VIII COLLEGE, CYBERJAYA","address":"HS(D) 28784, PT NO.41466 DENGKIL CYBERJAYA 63000 SELANGOR"}},{"@type":"ListItem","position":13,"item":{"@type":"School","name":"THE INTERNATIONAL SCHOOL@PARKCITY","address":"NO. 1, JALAN INTISARI DESA PARKCITY, KUALA LUMPUR 52200 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":14,"item":{"@type":"School","name":"SRI KDU INTERNATIONAL SCHOOL","address":"NO. 3 & 5 (ARAS 1), JALAN TEKNOLOGI 2/1 KOTA DAMANSARA 47810 SELANGOR"}},{"@type":"ListItem","position":15,"item":{"@type":"School","name":"OASIS INTERNATIONAL SCHOOL, TELUK PANGLIMA GARANG","address":"JALAN ANGGERIK THE MINES RESORT CITY SRI KEMBANGAN 43000 SELANGOR"}},{"@type":"ListItem","position":16,"item":{"@type":"School","name":"KOLEJ TUANKU JAAFAR","address":"KOLEJ TUANKU JA'AFAR MANTIN 71700 NEGERI SEMBILAN"}},{"@type":"ListItem","position":17,"item":{"@type":"School","name":"HELP INTERNATIONAL SCHOOL","address":"NO. 2 PERSIARAN CAKERAWALA SEKSYEN U4, SUBANG BESTARI SHAH ALAM 40150 SELANGOR"}},{"@type":"ListItem","position":18,"item":{"@type":"School","name":"KINGSGATE INTERNATIONAL SCHOOL","address":"A-GF-05, JALAN PBS 14/2 TAMAN BUKIT SERDANG SEKSYEN 13, SERI KEMBANGAN SERI KEMBANGAN 43300 SELANGOR"}},{"@type":"ListItem","position":19,"item":{"@type":"School","name":"SRI KDU INTERNATIONAL SCHOOL (KLANG)","address":"PT 4194, JALAN TAMPIN 1/KU 1 OFF JALAN GOH HOCK HUAT, SUNGAI PINANG KLANG 41050 SELANGOR"}},{"@type":"ListItem","position":20,"item":{"@type":"School","name":"MATRIX INTERNATIONAL SCHOOL, SEREMBAN","address":"PT 12652 SENDAYAN MERCHANT SQUARE, PERSIARAN 1 SENDAYAN UTAMA,PUSAT DAGANGAN SENDAYAN BANDAR SRI SENDAYAN 71950 NEGERI SEMBILAN"}},{"@type":"ListItem","position":21,"item":{"@type":"School","name":"PENINSULA INTERNATIONAL SCHOOL AUSTRALIA","address":"NO. 1 JALAN SETIA MURNI U13/51 SETIA ALAM SHAH ALAM 40170 SELANGOR"}},{"@type":"ListItem","position":22,"item":{"@type":"School","name":"CEMPAKA INTERNATIONAL SCHOOL, DAMANSARA HEIGHTS","address":"NO. 19, JALAN SETIABAKTI 1 BUKIT DAMANSARA 50490 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":23,"item":{"@type":"School","name":"SRI KDU INTERNATIONAL SCHOOL (SUBANG JAYA)","address":"JALAN MP2 TROPICANA METROPARK SUBANG JAYA 47500 SELANGOR"}},{"@type":"ListItem","position":24,"item":{"@type":"School","name":"TENBY INTERNATIONAL SCHOOL SETIA ECO PARK SHAH ALA","address":"NO. 1, JALAN SETIA TROPIKA U13/18T, SEKSYEN U13 SETIA ECO PARK SHAH ALAM 40170 SELANGOR"}},{"@type":"ListItem","position":25,"item":{"@type":"School","name":"SEKOLAH ANTARABANGSA TENBY TROPICANA AMAN","address":"NO.1, JALAN TROPICANA AMAN JALAN UTAMA 2, BANDAR TROPICANA AMAN TELOK PANGLIMA GARANG 42500 SELANGOR"}},{"@type":"ListItem","position":26,"item":{"@type":"School","name":"ROCKLIN INTERNATIONAL SCHOOL","address":"TINGKAT 5-9, KOMPLEKS PERMAISURI QUEENSVILLE NO. 6 JALAN SRI PERMAISURI, BANDAR SRI PERMAISURI CHERAS 56000 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":27,"item":{"@type":"School","name":"ASIA PASIFIC INTERNATIONAL SCHOOL","address":"ASIA PACIFIC INTERNATIONAL SCHOOL SUBANG SUBANG 47200 SELANGOR"}},{"@type":"ListItem","position":28,"item":{"@type":"School","name":"FAIRVIEW INTERNATIONAL SCHOOL","address":"LOT 4178, JALAN 1/27D SEKSYEN 6, WANGSA MAJU 53300 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":28,"item":{"@type":"School","name":"FAIRVIEW INTERNATIONAL SCHOOL","address":"NO. 2A, JALAN TP2 SIME UEP INDUSTRIAL PARK SUBANG JAYA 47600 SELANGOR"}},{"@type":"ListItem","position":30,"item":{"@type":"School","name":"UCSI INTERNATIONAL SCHOOL","address":"LOT 12734, JALAN CHOO LIP KUNG TAMAN TAYNTON VIEW CHERAS 56000 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":31,"item":{"@type":"School","name":"UCSI INTERNATIONAL SCHOOL","address":"NO. 1 PERSIARAN UCSI BANDAR SPRINGHILL 71010 NEGERI SEMBILAN"}},{"@type":"ListItem","position":32,"item":{"@type":"School","name":"RAFFLESIA INTERNATIONAL SCHOOL PUCHONG","address":"PERSIARAN SIERRA 2, BANDAR 16 SIERRA PUCHONG 47100 SELANGOR"}},{"@type":"ListItem","position":33,"item":{"@type":"School","name":"MUTIARA INTERNATIONAL GRAMMAR SCHOOL","address":"LOT 707, JALAN KERJA AYER LAMA AMPANG JAYA AMPANG 68000 SELANGOR"}},{"@type":"ListItem","position":34,"item":{"@type":"School","name":"EATON INTERNATIONAL SCHOOL","address":"PERSIARAN PUNCAK UTAMA JADE HILLS KAJANG 43000 SELANGOR"}},{"@type":"ListItem","position":35,"item":{"@type":"School","name":"HIBISCUS INTERNATIONAL SCHOOL","address":"UNIT 26, 27, 28 DAN 29, JALAN UDANG HARIMAU 3, KEPONG BUSINESS PARK, TAMAN SRI SEGAMBUT KUALA LUMPUR 52000 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":36,"item":{"@type":"School","name":"REAL INTERNATIONAL SCHOOL SHAH ALAM","address":"NO 5, JALAN MERAH SAGA U9/5 SHAH ALAM 40150 SELANGOR"}},{"@type":"ListItem","position":37,"item":{"@type":"School","name":"DWI EMAS INTERNATIONAL SCHOOL","address":"NO.5, JALAN IKHTISAS 14/1, SEKSYEN 14 SHAH ALAM 40000 SELANGOR"}},{"@type":"ListItem","position":38,"item":{"@type":"School","name":"TAYLOR'S INTERNATIONAL SCHOOL, PUCHONG","address":"NO.1 JALAN BP 14/7 BANDAR BUKIT PUCHONG 2 PUCHONG 47120 SELANGOR"}},{"@type":"ListItem","position":38,"item":{"@type":"School","name":"TAYLOR'S INTERNATIONAL SCHOOL KUALA LUMPUR","address":"NO. 9, JALAN 1/75C OFF JALAN PRIA, TAMAN MALURI KUALA LUMPUR 55100 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":40,"item":{"@type":"School","name":"NILAI INTERNATIONAL SCHOOL","address":"NO. 3, PERSIARAN KOLEJ BBN, PUTRA NILAI, NILAI 71800 NEGERI SEMBILAN"}},{"@type":"ListItem","position":41,"item":{"@type":"School","name":"TENBY INTERNATIONAL SCHOOL, SETIA ECOHILL,SEMENYIH","address":"NO. 6, JALAN ECOHILL 1, SETIA ECOHILL SEMENYIH 43500 SELANGOR"}},{"@type":"ListItem","position":42,"item":{"@type":"School","name":"ELC INTERNATIONAL SCHOOL","address":"LOT 3664, SIERRAMAS BARAT, SIERRAMAS SUNGAI BULOH 47000 SELANGOR"}},{"@type":"ListItem","position":42,"item":{"@type":"School","name":"SEKOLAH ANTARABANGSA ELC CYBERJAYA","address":"LOT 23539 LINGKARAN CYBER POINT BARAT CYBERJAYA 63000 SELANGOR"}},{"@type":"ListItem","position":44,"item":{"@type":"School","name":"STRAITS INTERNATIONAL SCHOOL, RAWANG, SELANGOR","address":"PERSIARAN TAMAN SARI TAMAN SARI RAWANG RAWANG 48000 SELANGOR"}},{"@type":"ListItem","position":45,"item":{"@type":"School","name":"BEACONHOUSE SRI INAI INTERNATIONAL SCHOOL","address":"LOT 1098, JALAN JENJAROM,OFF JALAN SS 23/6 TAMAN SEA PETALING JAYA 47400 SELANGOR"}},{"@type":"ListItem","position":46,"item":{"@type":"School","name":"MAHSA INTERNATIONAL SCHOOL","address":"JALAN SP 2, BANDAR SAUJANA PUTRA, JENJAROM, JENJAROM 41200 SELANGOR"}},{"@type":"ListItem","position":47,"item":{"@type":"School","name":"TANARATA INTERNATIONAL SCHOOL","address":"TIS @ PLANTERS GROUNDS, 3.5 MLS KAJANG-SERDANG ROAD, KAJANG 43000 SELANGOR"}},{"@type":"ListItem","position":48,"item":{"@type":"School","name":"QOSMO INTERNATIONAL SCHOOL","address":"WISMA MCIS ANNEXE NO. 2 (PLOY A), JALAN BARAT, SEKSYEN 52 PETALING JAYA 46200 SELANGOR"}},{"@type":"ListItem","position":49,"item":{"@type":"School","name":"SASANA INTERNATIONAL SCHOOL","address":"NO.22, 24, 26, 28, 30, 32, 34, 36, 38, 40 JALAN HIJAU 5/4, BANDAR TASIK PUTERI RAWANG 48020 SELANGOR"}},{"@type":"ListItem","position":50,"item":{"@type":"School","name":"BEACONHOUSE NEWLANDS INTERNATIONAL SCHOOL","address":"LOT NO. 2855, BATU 9, JALAN CHERAS CHERAS 43200 SELANGOR"}},{"@type":"ListItem","position":51,"item":{"@type":"School","name":"NOBEL INTERNATIONAL SCHOOL","address":"NO 43, JALAN SS 22/41, DAMANSARA JAYA PETALONG JAYA PETALING JAYA 47400 SELANGOR"}},{"@type":"ListItem","position":52,"item":{"@type":"School","name":"TEMPLER PARK INTERNATIONAL SCHOOL","address":"TAMAN RIMBA TEMPLER, TEMPLER PARK RAWANG 48200 SELANGOR"}},{"@type":"ListItem","position":53,"item":{"@type":"School","name":"SEKOLAH ANTARABANGSA SRI EMAS","address":"LOT 1214, SEKSYEN 40, BATU 10, LEBUHRAYA PERSEKUTUAN, OFF JALAN SS7/2 PETALING JAYA 47300 SELANGOR"}},{"@type":"ListItem","position":54,"item":{"@type":"School","name":"UCSI INTERNATIONAL SCHOOL","address":"LOT 4891, JALAN SS 13/4 SUBANG JAYA 47500 SELANGOR"}},{"@type":"ListItem","position":55,"item":{"@type":"School","name":"ASPIRATION INTERNATIONAL PRIMARY SCHOOL","address":"TINGKAT 2,3 DAN 4, PLAZA DAMANSARA UTAMA 2 JALAN SS 21/60, DAMANSARA UTAMA PETALING JAYA 47400 SELANGOR"}},{"@type":"ListItem","position":56,"item":{"@type":"School","name":"SRI BESTARI INTERNATIONAL SCHOOL","address":"PERSIARAN MARGOSA BANDAR SRI DAMANSARA KUALA LUMPUR 52200 SELANGOR"}},{"@type":"ListItem","position":57,"item":{"@type":"School","name":"MAPLE LEAF KINGSLEY INTERNATIONAL SCHOOL","address":"PERSIARAN KINGSLEY, KINGSLEY HILLS PUTRA HEIGHTS SUBANG JAYA 47650 SELANGOR"}},{"@type":"ListItem","position":58,"item":{"@type":"School","name":"SRI KUALA LUMPUR INTERNATIONAL SCHOOL","address":"NO. 1 JALAN SS 15/7A SUBANG JAYA 47500 SELANGOR"}},{"@type":"ListItem","position":59,"item":{"@type":"School","name":"ACMAR INTERNATIONAL SCHOOL, KLANG","address":"PT 21156 PERSIARAN RAJAWALI BANDAR BARU KLANG KLANG 41150 SELANGOR"}},{"@type":"ListItem","position":60,"item":{"@type":"School","name":"SAYFOL INTERNATIONAL SCHOOL","address":"NO. 261 JALAN AMPANG KUALA LUMPUR 50450 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":61,"item":{"@type":"School","name":"TREE TOP INTERNATIONAL SCHOOL","address":"2-28, JALAN UDANG SIAR 1, TAMAN SRI SEGAMBUT KUALA LUMPUR 52000 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":62,"item":{"@type":"School","name":"CRANBRIDGE INTERNATIONAL SCHOOL","address":"LOT 48, JALAN TIGA OFF JALAN CHAN SOW LIN KUALA LUMPUR 55200 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":63,"item":{"@type":"School","name":"STELLA MARIS INTERNATIONAL SCHOOL KUALA LUMPUR","address":"NO 7, LORONG SETIABESTARI 2 MEDAN DAMANSARA 50490 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":64,"item":{"@type":"School","name":"MAZ INTERNATIONAL SCHOOL SHAH ALAM","address":"LOT 2, JALAN KRISTAL 7/64, SEKSYEN 7, SHAH ALAM 40000 SELANGOR"}},{"@type":"ListItem","position":65,"item":{"@type":"School","name":"HAVIL INTERNATIONAL SCHOOL","address":"NO. 21, JALAN SULTAN ABDUL SAMAD BRICKFIELDS KUALA LUMPUR 50470 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":66,"item":{"@type":"School","name":"VALLEY INTERNATIONAL SCHOOL KUALA LUMPUR","address":"LOT19, 219, 220, 221, 222, 223, 224, 225, 226&227 55, JALAN THAMBY ABDULLAH BRICKFIELDS 50470 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":67,"item":{"@type":"School","name":"UTAMA INTERNATIONAL SCHOOL KUALA LUMPUR","address":"NO 1, JALAN SERI REJANG RAMPAI PARK SOUTH SETAPAK 53300 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":68,"item":{"@type":"School","name":"ST. JOHN’S INTERNATIONAL PRIMARY SCHOOL, KUALA LUMPUR","address":"145, JALAN BUKIT NANAS KUALA LUMPUR 50250 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":69,"item":{"@type":"School","name":"BRIGHTON INTERNATIONAL SCHOOL, SETIAWANGSA KUALA LUMPUR","address":"BANGUNAN SRI IMPIAN,NO 24,31,JALAN SETIAWANGSA 8 TAMAN SETIAWANGSA KUALA LUMPUR 54200 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":70,"item":{"@type":"School","name":"MAZ INTERNATIONAL SCHOOL PETALING JAYA","address":"NO. 1 JALAN 20/19 PARAMOUNT GARDEN PETALING JAYA 46300 SELANGOR"}},{"@type":"ListItem","position":71,"item":{"@type":"School","name":"INSPIROS INTERNATONAL SCHOOL","address":"B-1-1, BLOK B, SETIA WALK, PERSIARAN WAWASAN, PUSAT BANDAR PUCHONG PUCHONG 47100 SELANGOR"}},{"@type":"ListItem","position":72,"item":{"@type":"School","name":"REGENT INTERNATIONAL SCHOOL","address":"LOT 4337, JALAN KOPI, OFF PERSIARAN RAJA MUDA MUSA KLANG 41200 SELANGOR"}},{"@type":"ListItem","position":73,"item":{"@type":"School","name":"ZENITH INTERNATIONAL SCHOOL","address":"126, JALAN S2 B4, UPTOWN AVENUE, SEREMBAN 70300 NEGERI SEMBILAN"}},{"@type":"ListItem","position":74,"item":{"@type":"School","name":"HERITAGE INTERNATIONAL SCHOOL","address":"TINGKAT BAWAH, 1 DAN 2, BLOK A HERITAGE CENTRE NO.3, JALAN 13/6 PETALING JAYA 46200 SELANGOR"}},{"@type":"ListItem","position":75,"item":{"@type":"School","name":"SEKOLAH ANTARABANGSA ALNOOR","address":"NO. 6, LENGKOK BELLAMY BUKIT PETALING KUALA LUMPUR 50460 WILAYAH PERSEKUTUAN KUALA LUMPUR"}},{"@type":"ListItem","position":76,"item":{"@type":"School","name":"GLOBAL MODERN INTERNATIONAL SCHOOL","address":"NO 1, JALAN SINAR PAGI COUNTRY HEIGHTS KAJANG 43000 SELANGOR"}},{"@type":"ListItem","position":77,"item":{"@type":"School","name":"OAKBRIDGE INTERNATIONAL SCHOOL","address":"LOT 556 JALAN SUBANG 3 TAMAN PERINDUSTRIAN SUBANG SUBANG JAYA 47610 SELANGOR"}},{"@type":"ListItem","position":78,"item":{"@type":"School","name":"COLUMBIA INTERNATIONAL SCHOOL, CHERAS SELANGOR","address":"NO 1, JALAN CHERAS BATU 11, BUKIT DUKUNG BUSINESS PARK KAJANG 43000 SELANGOR"}},{"@type":"ListItem","position":79,"item":{"@type":"School","name":"SRI DASMESH INTERNATIONAL SCHOOL","address":"NO. 12 JALAN PANTAI BARU KUALA LUMPUR 59200 WILAYAH PERSEKUTUAN KUALA LUMPUR"}}]}}</script>
+  <script>
+    (() => {
+      const searchInput = document.getElementById('school-search');
+      const cards = Array.from(document.querySelectorAll('.school-card'));
+      const resultCount = document.getElementById('result-count');
+      let activeRegion = '전체';
+      let activeCurriculum = '전체';
+
+      function applyFilters() {
+        const query = (searchInput.value || '').trim().toLowerCase();
+        let visible = 0;
+        cards.forEach(card => {
+          const matchesQuery = !query || (card.dataset.search || '').includes(query);
+          const matchesRegion = activeRegion === '전체' || card.dataset.region === activeRegion;
+          const matchesCurriculum = activeCurriculum === '전체' || card.dataset.curriculum === activeCurriculum;
+          const show = matchesQuery && matchesRegion && matchesCurriculum;
+          card.style.display = show ? '' : 'none';
+          if (show) visible += 1;
+        });
+        resultCount.textContent = visible;
+      }
+
+      function activateChip(groupSelector, value) {
+        document.querySelectorAll(groupSelector + ' .chip').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.value === value);
+        });
+      }
+
+      searchInput.addEventListener('input', applyFilters);
+
+      document.addEventListener('click', (e) => {
+        const chip = e.target.closest('.chip');
+        if (!chip) return;
+        const filter = chip.dataset.filter;
+        const value = chip.dataset.value;
+        if (filter === 'region') {
+          activeRegion = value;
+          activateChip('#region-filters', value);
+        } else if (filter === 'curriculum') {
+          activeCurriculum = value;
+          activateChip('#curriculum-filters', value);
+        }
+        applyFilters();
+      });
+    })();
+  </script>
+</body>
+</html>
